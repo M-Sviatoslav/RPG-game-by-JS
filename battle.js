@@ -1,6 +1,6 @@
 import getRandomIntInclusive from "./Tools/random.js";
 
-export default function Battle(Hero, Orc) {
+export default function Battle(Hero, Enemy) {
   const meleeAttack = document.getElementById("meleeAttack");
   const rangeAttack = document.getElementById("rangeAttack");
 
@@ -11,7 +11,7 @@ export default function Battle(Hero, Orc) {
   }
 
   function enemyTurn() {
-    Hero.takeDamage(Orc.getMeleedmg || Orc.getRangedmg);
+    Hero.takeDamage(Enemy.getMeleedmg);
     turnToAttack = 1;
     if (Hero.getHp <= 0) {
       turnToAttack = 0;
@@ -21,9 +21,9 @@ export default function Battle(Hero, Orc) {
 
   meleeAttack.addEventListener("click", () => {
     if (turnToAttack == 1) {
-      Orc.takeDamage(Hero.getMeleedmg);
+      Enemy.takeDamage(Hero.getMeleedmg);
       turnToAttack = 0;
-      if (Orc.getHp <= 0) {
+      if (Enemy.getHp <= 0) {
         alert("YOU WIN");
       } else {
         enemyTurn();
@@ -32,9 +32,9 @@ export default function Battle(Hero, Orc) {
   });
   rangeAttack.addEventListener("click", () => {
     if (turnToAttack == 1) {
-      Orc.takeDamage(Hero.getRangedmg);
+      Enemy.takeDamage(Hero.getRangedmg);
       turnToAttack = 0;
-      if (Orc.getHp <= 0) {
+      if (Enemy.getHp <= 0) {
         alert("YOU WIN");
       } else {
         enemyTurn();

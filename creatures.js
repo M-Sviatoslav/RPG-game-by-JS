@@ -33,7 +33,7 @@ export default class Creatures {
 
   takeDamage(dmgValue){
     this.hp -= dmgValue;
-    console.log(this.hp)
+    console.log( this.name + " take damage " + dmgValue + " health left " + this.hp)
   }
 
 
