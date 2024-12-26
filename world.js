@@ -6,7 +6,7 @@ import Battle from "./battle.js";
 
 let Hero = new Creatures("Konrad", "Human", 100, 10, 7);
 
-let Enemy = new Creatures(
+let Buffal = new Creatures(
   "Bufall",
   "Orc",
   getRandomIntInclusive(45, 65),
@@ -15,4 +15,8 @@ let Enemy = new Creatures(
 );
 
 
-Battle(Hero,Enemy)
+
+Battle(Hero , Buffal);
+
+
+
